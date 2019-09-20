@@ -1,0 +1,52 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+body{
+  height: 100vh;
+  overflow: hidden;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+a,
+i {
+  text-decoration: none;
+  color: map-get($map: $colors, $key: primary);
+  font-size: 1.3em;
+  cursor: pointer;
+}
+img {
+  display: block;
+  width: 100%;
+}
+a:hover,
+a:active {
+  color: lighten(map-get($map: $colors, $key: primary), 20%);
+}
+.main {
+  height: 100%;
+}

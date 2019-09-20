@@ -1,0 +1,4 @@
+export const SEARCH ={
+    UDPDATE_SEARCH : 'UPDATE_SEARCH',
+    RESET_SEARCH : 'RESET_SEARCH',
+}

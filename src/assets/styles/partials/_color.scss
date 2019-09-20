@@ -1,0 +1,32 @@
+$colors:(
+    grey: grey,
+    light-grey: rgb(189, 189, 189),
+    white: rgb(230, 230, 230),
+    black: rgb(33, 33, 33),
+    primary: rgba(46, 115, 224, 0.81),
+    secondary: orange,
+    success: rgb(3, 155, 3),
+    danger: rgb(210, 38, 0),
+    none: none,
+);
+
+
+  @mixin color-modifiers($attribute: 'color', $prefix: '-') {
+    @each $name, $hex in $colors {
+      &#{$prefix}#{$name} {
+        #{$attribute}: $hex;
+      }
+    }
+  }
+  .text {
+    @include color-modifiers;
+  }
+
+  .bg {
+    @include  color-modifiers($attribute: 'background-color');
+  }
+  
+  .border {
+    border: 1px solid;
+    @include color-modifiers($attribute: 'border-color');
+  }
