@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = ()=>{
+const Todos = ()=>{
     return(
         <div>
             this is Main. and route still works!!!
@@ -8,4 +8,4 @@ const Main = ()=>{
     )
 }
 
-export default Main;
+export default Todos;

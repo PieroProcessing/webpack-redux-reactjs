@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserData } from '../../redux/actions/authentication.action';
-import restApi from '../../service/rest.api';
+// import restApi from '../../service/rest.api';
 
-const call = restApi();
+// const call = restApi();
 
 const Login = (props) => {
     const [model, setModel] = useState({ username: '', password: '' });

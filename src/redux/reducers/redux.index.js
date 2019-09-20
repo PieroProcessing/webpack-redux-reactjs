@@ -5,14 +5,12 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { listReducer } from './list.reducer';
 import { authenticationReducer } from './auth.reducer';
 import { searchReducer} from './search.reducer';
-import {filteredListReducer}from './filteredList.reducer';
 
 const appReducer = combineReducers({
     // name: nameReducer,
     auth: authenticationReducer,
     list: listReducer,
     search: searchReducer,
-    filtered: filteredListReducer,
 });
 
 const RootReducer = (state, action) => {

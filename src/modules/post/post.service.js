@@ -8,7 +8,6 @@ function getPost(dispatch) {
         res => {
             console.log('res', res.data)
             dispatch(initList(res.data));
-            // setList(()=>{return storedList})
         }
     ).catch(
         err => {
@@ -21,7 +20,6 @@ function getFilteredPost(dispatch, param, filter) {
         res => {
             console.log('res', res.data)
             dispatch(initList(res.data));
-            // setList(()=>{return storedList})
         }
     ).catch(
         err => {

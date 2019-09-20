@@ -1,8 +1,8 @@
 // Register each state
 // import  login  from './modules/authentication/login.routing';
-import  main  from './modules/main/main.routing';
+import  todos  from './modules/todos/todos.routing';
 import  post  from './modules/post/post.routing';
 export const states = [
         post,
-        main,
+        todos,
 ]

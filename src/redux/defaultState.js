@@ -5,7 +5,6 @@ const defaultState = () => {
         },
         search: '',
         list: {},
-        filtered:[],
         record: {},
     }
     return defaultState;
