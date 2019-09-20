@@ -3,7 +3,7 @@ import { initList } from '../../redux/actions/list.action'
 
 const call = restApi();
 
-function getArtist(dispatch) {
+function getPost(dispatch) {
     call.get('posts/').then(
         res => {
             console.log('res', res.data)
@@ -16,7 +16,7 @@ function getArtist(dispatch) {
         }
     )
 }
-function getFilteredArtist(dispatch, param, filter) {
+function getFilteredPost(dispatch, param, filter) {
     call.get('posts/?'+param+'='+filter).then(
         res => {
             console.log('res', res.data)
@@ -29,4 +29,4 @@ function getFilteredArtist(dispatch, param, filter) {
         }
     )
 }
-export { getArtist, getFilteredArtist }
+export { getPost, getFilteredPost }

@@ -23,7 +23,7 @@ const Login = (props) => {
         //         // console.log('response on ',response)
         //         var data = Object.assign({}, response.data, { isLogged: true })
         //         dispatch(setUserData(data));
-        //         props.history.push(`/dashboard/collectables/`)
+        //         props.history.push(`/dashboard/main/`)
         //     }
         // ).catch(
         //     err => {
@@ -31,7 +31,7 @@ const Login = (props) => {
         //     }
         // );
         dispatch(setUserData({isLogged: true}));
-        props.history.push('/dashboard/artists/')
+        props.history.push('/dashboard/post/')
 
     }
     return (

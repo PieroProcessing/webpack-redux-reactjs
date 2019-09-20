@@ -1,16 +1,12 @@
 import React, { Fragment, useEffect, useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getArtist, getFilteredArtist } from './artists.service';
-import restApi from '../../service/rest.api';
-import { initList } from '../../redux/actions/list.action';
 import { filterList } from '../../redux/actions/filteredList.action';
 import Search from '../../components/search.component';
 import CardWrapper from '../../components/card.component';
-import { resetSearch } from '../../redux/actions/search.action';
+import { getFilteredPost, getPost } from './post.service';
 
-const call = restApi();
 
-const Artists = () => {
+const Post = () => {
     const dispatch = useDispatch();
     const list = useSelector(state => state.list);
     const term = useSelector(state => state.search);
@@ -21,12 +17,12 @@ const Artists = () => {
 
     const submitHandler = () => {
         if (term) {
-            getFilteredArtist(dispatch, 'title', term);
+            getFilteredPost(dispatch, 'title', term);
             // dispatch(resetSearch())
         } else {
-            getArtist(dispatch);
+            getPost(dispatch);
         }
-   
+
     }
     return (
         <Fragment>
@@ -48,4 +44,4 @@ const getStyle = {
         padding: '1rem',
     }
 }
-export default Artists;
+export default Post;
