@@ -10,7 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, './src/index.js'),
+        main: ['babel-polyfill',path.resolve(__dirname, './src/index.js')],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -24,7 +24,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /src.*\.js$/,
+                test: /src.*\.(js|jsx)$/,
                 use: [
                     {
                         loader: 'babel-loader',
@@ -37,6 +37,12 @@ module.exports = {
                     }
                 ]
             },
+            // uncomment to eslint controll and corrections
+            // {
+            //     enforce: 'pre',
+            //     test: /src.*\.(js|jsx)$/,
+            //     loader: 'eslint-loader',
+            // },
             {
                 test: /src.*\.(css|scss|sass)$/,
                 use: [
@@ -96,5 +102,6 @@ module.exports = {
             favicon: "./src/assets/media/favicon.ico"
         }),
         new BundleAnalyzerPlugin(),
+        // new webpack.LoaderOptionsPlugin({ options: {} }),
     ]
 }

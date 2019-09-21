@@ -13,10 +13,10 @@ const Login = (props) => {
     const loginHandler = (e) => {
         e.persist();
         setModel(model => ({ ...model, [e.target.name]: e.target.value }));
-    }
+    };
     // 
     const loginSubmit = (event) => {
-        // console.log(event)
+    // console.log(event)
         if (event) event.preventDefault();
         // call.post('auth-rest/login/', model).then(
         //     response => {
@@ -30,10 +30,10 @@ const Login = (props) => {
         //         console.log(err)
         //     }
         // );
-        dispatch(setUserData({isLogged: true}));
-        props.history.push('/dashboard/post/')
+        dispatch(setUserData({ isLogged: true }));
+        props.history.push('/dashboard/post/');
 
-    }
+    };
     return (
         <section className='grid--auth'>
             <form name="form" className='login' onSubmit={(event)=> loginSubmit(event)} >
@@ -43,7 +43,7 @@ const Login = (props) => {
                 {/* <button onClick={(e) => loginSubmit(e)} /> */}
             </form>
         </section>
-    )
-}
+    );
+};
 
 export default Login;

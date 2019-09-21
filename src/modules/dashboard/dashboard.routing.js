@@ -3,4 +3,4 @@ export default{
     name :'dashboard',
     url: '/dashboard/',
     component: Dashboard
-}
+};

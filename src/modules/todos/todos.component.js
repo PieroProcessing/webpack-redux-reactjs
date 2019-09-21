@@ -5,7 +5,7 @@ const Todos = ()=>{
         <div>
             this is Main. and route still works!!!
         </div>
-    )
-}
+    );
+};
 
 export default Todos;

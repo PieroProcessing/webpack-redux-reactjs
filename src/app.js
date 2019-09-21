@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import Dashboard from './modules/dashboard/dashboard.component';

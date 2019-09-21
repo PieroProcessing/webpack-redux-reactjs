@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NotFound = ()=>{
     return (
@@ -7,7 +7,7 @@ const NotFound = ()=>{
             Page not found!
             <NavLink to="/login"></NavLink>
         </div>
-    )
-}
+    );
+};
 
 export default NotFound;

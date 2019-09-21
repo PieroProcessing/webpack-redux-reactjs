@@ -1,10 +1,10 @@
 // configuration
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {combineReducers } from 'redux';
 // reducers list
 // import {nameReducer} from './reducers/name.reducer';
 import { listReducer } from './list.reducer';
 import { authenticationReducer } from './auth.reducer';
-import { searchReducer} from './search.reducer';
+import { searchReducer } from './search.reducer';
 
 const appReducer = combineReducers({
     // name: nameReducer,

@@ -1,24 +1,24 @@
-import React, { Fragment, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from 'react-router-dom';
+import React, {  Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import { states } from '../../app.routing';
 
-const ComponentLinks = ({ states }) => (
+const ComponentLinks = ({ states }) => 
 
     states.map(state =>
         <li key={state.name}>
             <NavLink to={'/dashboard' + state.url}>{state.name}</NavLink>
         </li>
-    )
-)
-const RouteComponents = ({ states }) => (
+    );
+
+const RouteComponents = ({ states }) => 
 
     states.map(state =>
         <Route key={state.name} exact path={'/dashboard' + state.url} component={state.component} />
-    )
+    );
 
-)
 
-const Dashboard = (props) => {
+
+const Dashboard = () => {
     // console.log('im in dashboard', props);
     // console.log('states', states);
     // const { pathname } = props;
@@ -41,11 +41,11 @@ const Dashboard = (props) => {
                 <footer className='footer'></footer>
             </section>
         </Router>
-    )
-}
+    );
+};
 const getStyle = {
     wrapper:{
         overflowY: 'scroll'
     }
-}
+};
 export default Dashboard;
