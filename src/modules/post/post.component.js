@@ -1,37 +1,67 @@
-import React, { Fragment, useEffect,  useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Search from '../../components/search.component';
 import CardWrapper from '../../components/card.component';
-import { getPost } from './post.service';
+import { getPost, getTodos } from './post.service';
 import { escapeRegExp } from '../../service/utils';
+import Select from 'antd/es/select';
+import { resetSearch } from '../../redux/actions/search.action';
+const { Option } = Select;
+function getList(display, term) {
 
+    return [];
+}
 const Post = () => {
     const dispatch = useDispatch();
     const list = useSelector(state => state.list);
     const term = useSelector(state => state.search);
-    const [filtered,setFiltered] = useState([]);
+    const todos = useSelector(state => state.todos);
 
-    useEffect(() => { getPost(dispatch); }, [dispatch]);
-    useEffect(() => { if (Object.entries(list).length != 0) { 
-        let results = term? list.filter(       
-            (item)=> {return !item['title'].toLowerCase().search(escapeRegExp(term).toLowerCase());}
-        ): list;
-        setFiltered(results);
-    } }, [term, list]);
+    const [filtered, setFiltered] = useState([]);
+    const [selected, setSelected] = useState('posts');
+    const [displayed, setDisplayed] = useState(list);
+    useEffect(() => { getPost(dispatch); getTodos(dispatch) }, [dispatch]);
+    useEffect(() => {
+        if (selected == 'posts')
+            setDisplayed(list)
+        else
+            setDisplayed(todos)
+    }, [selected, list, todos])
+    useEffect(() => {
+        console.log('results', displayed)
+        if (displayed.length != 0) {
+            let results = term ? displayed.filter(
+                (item) => { return !item['title'].toLowerCase().search(escapeRegExp(term).toLowerCase()); }
+            ) : displayed;
+            setFiltered(results);
+        }
+    }, [term, displayed]);
+
 
     const submitHandler = () => {
+        console.log('submit called')
         if (term) {
             //method not supported on jsonplaceholder//
             // getFilteredPost(dispatch, 'title', term);
         } else {
-            getPost(dispatch);
+            // getPost(dispatch);
         }
 
     };
 
+    const selectHandler = (selected) => {
+        console.log('selected changed', selected)
+        setSelected(selected);
+        dispatch(resetSearch());
+    }
+
     return (
         <Fragment>
-            <Search onSubmit={() => submitHandler()} />
+            <Search onSubmit={submitHandler} />
+            <Select defaultValue="posts" style={getStyle.select} onChange={selectHandler}>
+                <Option value="posts">Posts</Option>
+                <Option value="todos">Todos</Option>
+            </Select>
             <div style={getStyle.wrapper}>
                 {
                     filtered.map((item) => <CardWrapper key={item.id} model={item} />)
@@ -46,7 +76,9 @@ const getStyle = {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(200px,1fr)',
         gridGap: '1rem',
-        padding: '1rem',
+    },
+    select: {
+        margin: '1rem 0',
     }
 };
 export default Post;

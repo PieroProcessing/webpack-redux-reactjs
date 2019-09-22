@@ -45,7 +45,8 @@ const Dashboard = () => {
 };
 const getStyle = {
     wrapper:{
-        overflowY: 'scroll'
+        overflowY: 'scroll',
+        padding: '1rem'
     }
 };
 export default Dashboard;
