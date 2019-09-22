@@ -38,7 +38,6 @@ const Search = (props) => {
 const getStyle = {
     wrapper: {
         height: '5rem',
-        padding: '1rem',
     }
 }
 export default Search;

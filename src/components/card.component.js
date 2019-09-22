@@ -12,7 +12,6 @@ const CardWrapper = (props) => {
 };
 const getStyle = {
     wrapper: {
-        padding: '.5rem .5rem',
     },
     container: {
     }
