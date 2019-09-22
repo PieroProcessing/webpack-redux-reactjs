@@ -5,12 +5,14 @@ import {combineReducers } from 'redux';
 import { listReducer } from './list.reducer';
 import { authenticationReducer } from './auth.reducer';
 import { searchReducer } from './search.reducer';
+import { todosReducer } from './todos.reducer';
 
 const appReducer = combineReducers({
     // name: nameReducer,
     auth: authenticationReducer,
     list: listReducer,
     search: searchReducer,
+    todos: todosReducer,
 });
 
 const RootReducer = (state, action) => {

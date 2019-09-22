@@ -4,7 +4,8 @@ const defaultState = () => {
             isLogged: false,
         },
         search: '',
-        list: {},
+        list: [],
+        todos:[],
         record: {},
     }
     return defaultState;
