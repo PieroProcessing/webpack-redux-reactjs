@@ -7,6 +7,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import redux from './redux/store';
 
 import App from './app';
+import(/* webpackChunkName: "antd.css" */'!style-loader!css-loader!antd/dist/antd.min.css');
+
+
 const { store, persistor } = redux();
 
 ReactDOM.render(
