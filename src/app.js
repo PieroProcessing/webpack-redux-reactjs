@@ -15,12 +15,14 @@ const App = (props) => {
     //     console.log('user isLogged effect', user);
     // }, [user])
     return (
+
         <Switch>
             <Redirect from="/" to="/login" exact strict />
             <Route path="/login" component={Login} />
-            <Route path="/dashboard" render={() => (user.isLogged ? (<Dashboard {...props.location}/>) : (<Redirect to="/login" />))} />
+            <Route path="/dashboard" render={() => (user.isLogged ? (<Dashboard {...props} />) : (<Redirect to="/login" />))} />
             <Route component={NotFound} />
         </Switch>
+
     );
 }
 

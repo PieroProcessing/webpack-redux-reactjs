@@ -6,11 +6,10 @@ import { getPost, getTodos } from './post.service';
 import { escapeRegExp } from '../../service/utils';
 import Select from 'antd/es/select';
 import { resetSearch } from '../../redux/actions/search.action';
+import { resetTodos } from '../../redux/actions/todos.action';
+import { resetList } from '../../redux/actions/list.action';
 const { Option } = Select;
-function getList(display, term) {
 
-    return [];
-}
 const Post = () => {
     const dispatch = useDispatch();
     const list = useSelector(state => state.list);
@@ -20,7 +19,15 @@ const Post = () => {
     const [filtered, setFiltered] = useState([]);
     const [selected, setSelected] = useState('posts');
     const [displayed, setDisplayed] = useState(list);
-    useEffect(() => { getPost(dispatch); getTodos(dispatch) }, [dispatch]);
+    const clearComponent = ()=>{
+        dispatch(resetList());
+        dispatch(resetTodos())
+    }
+    useEffect(() => { 
+        getPost(dispatch); 
+        getTodos(dispatch) 
+        return ()=> clearComponent();
+    }, [dispatch]);
     useEffect(() => {
         if (selected == 'posts')
             setDisplayed(list)
@@ -44,7 +51,7 @@ const Post = () => {
             //method not supported on jsonplaceholder//
             // getFilteredPost(dispatch, 'title', term);
         } else {
-            // getPost(dispatch);
+            getPost(dispatch);
         }
 
     };
